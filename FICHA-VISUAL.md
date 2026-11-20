@@ -1,3 +1,5 @@
+<!--  -->
+
 # Ficha visual de ByDrive Reviews
 
 Fuente: [Reviews](https://bydrive.framer.website/reviews) y [Style Guide](https://bydrive.framer.website/style-guide). Se inspeccionó el HTML público y sus reglas CSS, incluidas las variantes responsive. Las medidas son las declaradas en el código de la referencia. Los estados interactivos y el resultado visual quedan pendientes de comprobar en navegador.
