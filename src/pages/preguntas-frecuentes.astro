@@ -1,0 +1,27 @@
+---
+import PublicLayout from "../layouts/PublicLayout.astro";
+import { questions } from "../data/landing";
+---
+
+<PublicLayout
+  title="Preguntas frecuentes"
+  description="Respuestas sobre el transporte en autos colectivos en Huancayo."
+>
+  <div class="wrap section-space max-w-4xl">
+    <section id="preguntas" class="panel bg-white" aria-labelledby="faq-title">
+      <h1 id="faq-title" class="section-title">
+        Preguntas frecuentes
+      </h1>
+      <div class="mt-4 divide-y divide-line">
+        {questions.map((question) => (
+          <details class="py-3">
+            <summary class="cursor-pointer font-semibold">
+              {question.title}
+            </summary>
+            <p class="mt-2 text-muted">{question.text}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+</PublicLayout>

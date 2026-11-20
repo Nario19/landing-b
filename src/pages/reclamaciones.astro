@@ -1,0 +1,42 @@
+---
+import PublicLayout from "../layouts/PublicLayout.astro";
+---
+
+<PublicLayout
+  title="Quejas y reclamos"
+  description="Información para pasajeros que deseen presentar una queja o un reclamo."
+>
+  <section class="wrap section-space">
+    <h1 class="section-title">Quejas y reclamos</h1>
+    <p class="mt-4 max-w-prose text-muted">
+      Si ocurrió un incidente, anota la fecha, la ruta, lo sucedido y la placa,
+      si la conoces. El canal oficial para presentar un reclamo está pendiente
+      de confirmación.
+    </p>
+    <h2 class="mt-10 text-2xl font-bold">Ejemplo de reporte</h2>
+    <p class="mt-2 text-sm font-semibold text-muted">
+      Situación ficticia de demostración.
+    </p>
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      <article class="panel">
+        <h3 class="text-lg font-bold">Ruta utilizada</h3>
+        <p class="mt-2 text-muted">
+          Ejemplo: Huancayo a El Tambo, trayecto de la tarde.
+        </p>
+      </article>
+      <article class="panel">
+        <h3 class="text-lg font-bold">Detalle del incidente</h3>
+        <p class="mt-2 text-muted">
+          Ejemplo: el pasajero informa que el vehículo pasó de largo por el
+          paradero.
+        </p>
+      </article>
+      <article class="panel">
+        <h3 class="text-lg font-bold">Datos que ayudarían</h3>
+        <p class="mt-2 text-muted">
+          Hora aproximada, punto de embarque y placa si se conoce.
+        </p>
+      </article>
+    </div>
+  </section>
+</PublicLayout>

@@ -1,0 +1,86 @@
+---
+import { routes } from "../../data/landing";
+
+const currency = new Intl.NumberFormat("es-PE", {
+  style: "currency",
+  currency: "PEN",
+});
+---
+
+<section id="rutas" class="wrap section-space" aria-labelledby="routes-title">
+  <div class="max-w-2xl">
+    <p class="eyebrow text-primary">PLANIFICA TU VIAJE</p>
+    <h1 id="routes-title" class="section-title">
+      Encuentra tu ruta
+    </h1>
+    <p class="mt-4 max-w-2xl text-muted">
+      Los recorridos, paraderos, horarios y precios que se muestran son de
+      demostración y están pendientes de confirmación.
+    </p>
+    <div class="mt-5 flex flex-wrap gap-3">
+      <a href="#horarios" class="button button-light">
+        Horarios y frecuencias
+      </a>
+      <a href="#tarifas" class="button button-light">
+        Tarifas por pasajero
+      </a>
+    </div>
+  </div>
+  <div class="mt-8 grid items-start gap-4 md:grid-cols-3">
+    {routes.map((route) => (
+      <article class="panel">
+        <span class="rounded-full bg-white px-2.5 py-1 text-sm font-bold text-primary">
+          {route.id} · Ejemplo
+        </span>
+        <h2 class="mt-4 text-2xl font-bold tracking-tight">
+          {route.origin} a {route.destination}
+        </h2>
+        <p class="mt-1 text-muted">Vía {route.corridor}</p>
+        <details class="mt-5 border-t border-line pt-3">
+          <summary class="cursor-pointer py-1 font-semibold text-primary">
+            Ver paraderos de ejemplo
+          </summary>
+          <ol class="mt-2 list-decimal space-y-1 pl-6 text-muted">
+            {route.stops.map((stop) => (
+              <li>{stop}</li>
+            ))}
+          </ol>
+        </details>
+      </article>
+    ))}
+  </div>
+  <div class="mt-4 grid gap-4 md:grid-cols-2">
+    <section id="horarios" class="panel bg-white" aria-labelledby="hours-title">
+      <h2 id="hours-title" class="text-2xl font-bold tracking-tight">
+        Horarios y frecuencias
+      </h2>
+      <p class="mt-1 text-sm font-semibold text-muted">Datos de demostración</p>
+      <dl class="mt-4 divide-y divide-line">
+        {routes.map((route) => (
+          <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 py-3">
+            <dt class="font-semibold">{route.destination}</dt>
+            <dd class="text-muted">
+              {route.hours} · {route.frequency}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+    <section id="tarifas" class="panel bg-white" aria-labelledby="fares-title">
+      <h2 id="fares-title" class="text-2xl font-bold tracking-tight">
+        Tarifas por pasajero
+      </h2>
+      <p class="mt-1 text-sm font-semibold text-muted">Datos de demostración</p>
+      <dl class="mt-4 divide-y divide-line">
+        {routes.map((route) => (
+          <div class="flex justify-between gap-3 py-3">
+            <dt class="font-semibold">{route.destination}</dt>
+            <dd class="font-semibold text-primary">
+              {currency.format(route.fare)}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  </div>
+</section>

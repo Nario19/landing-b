@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+import { companyName } from "../data/landing";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} | {companyName}</title>
+  </head>
+  <body class="flex min-h-screen flex-col bg-white font-sans text-ink antialiased">
+    <a href="#contenido" class="skip-link">
+      Ir al contenido
+    </a>
+    <SiteHeader />
+    <main id="contenido" class="page-content flex-1" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

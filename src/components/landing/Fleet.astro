@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import photo from "../../assets/tipos-de-colectivos.jpg";
+---
+
+<section id="flota" class="bg-ink text-white" aria-labelledby="fleet-title">
+  <div class="wrap pt-14 pb-5 sm:pt-20 sm:pb-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h1 id="fleet-title" class="section-title">
+        Nuestra flota
+      </h1>
+      <p class="mt-4 text-neutral-300">
+        Sedanes y station wagons son tipos de vehículos usados para viajar en
+        colectivo. El detalle de las unidades está pendiente de confirmación.
+      </p>
+    </div>
+    <figure class="relative mt-8 overflow-hidden rounded-[1.75rem]">
+      <Image
+        src={photo}
+        alt="Imagen ilustrativa de un sedán y un station wagon blancos"
+        format="webp"
+        widths={[480, 800, 1100, 1440]}
+        sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1312px) calc(100vw - 64px), 1248px"
+        class="aspect-[4/3] w-full object-cover sm:aspect-[2.5/1]"
+      />
+      <figcaption class="absolute right-4 bottom-4 rounded-full bg-ink px-3 py-1.5 text-xs font-semibold">
+        Imagen ilustrativa
+      </figcaption>
+    </figure>
+  </div>
+</section>

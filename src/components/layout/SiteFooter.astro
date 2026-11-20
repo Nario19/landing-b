@@ -1,0 +1,79 @@
+---
+import { companyName } from "../../data/landing";
+
+const groups = [
+  {
+    title: "Planifica tu viaje",
+    links: [
+      { href: "/rutas/", label: "Rutas y paraderos" },
+      { href: "/rutas/#horarios", label: "Horarios y frecuencias" },
+      { href: "/rutas/#tarifas", label: "Tarifas" },
+    ],
+  },
+  {
+    title: "La empresa",
+    links: [
+      { href: "/nosotros/", label: "Nosotros" },
+      { href: "/servicios/", label: "Servicios" },
+      { href: "/flota/", label: "Nuestra flota" },
+      { href: "/comunicados/", label: "Comunicados" },
+    ],
+  },
+  {
+    title: "Atención al pasajero",
+    links: [
+      { href: "/contacto/", label: "Contacto" },
+      { href: "/objetos-perdidos/", label: "Objetos perdidos" },
+      { href: "/preguntas-frecuentes/", label: "Preguntas frecuentes" },
+      { href: "/reclamaciones/", label: "Quejas y reclamos" },
+      { href: "/unete/", label: "Únete a la empresa" },
+    ],
+  },
+];
+---
+
+<footer class="bg-neutral-950 text-white">
+  <div class="wrap">
+    <div class="grid gap-10 py-12 sm:py-16 lg:grid-cols-[1fr_2fr]">
+      <div>
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">
+            <i></i>
+            <i></i>
+          </span>
+          <span>{companyName}</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-neutral-300">
+          Transporte urbano compartido
+          <br />
+          Huancayo, Junín, Perú
+        </p>
+      </div>
+      <nav
+        aria-label="Pie de página"
+        class="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-3"
+      >
+        {groups.map(({ title, links }) => (
+          <div>
+            <h2 class="text-sm font-medium text-neutral-400">{title}</h2>
+            <ul class="mt-3 grid gap-1 text-sm">
+              {links.map(({ href, label }) => (
+                <li>
+                  <a class="inline-block py-1.5 underline-offset-4" href={href}>
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </nav>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-4 border-t border-neutral-700 py-5 text-sm text-neutral-300">
+      <span>{companyName} · Sitio informativo</span>
+      <a class="py-2 text-white underline-offset-4" href="/">
+        Volver al inicio
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import photo from "../../assets/colectivo-estudio.jpg";
+---
+
+<section id="inicio" class="bg-white" aria-labelledby="hero-title">
+  <div class="wrap hero-screen">
+    <div class="hero-copy mx-auto max-w-4xl text-center">
+      <h1
+        id="hero-title"
+        class="text-[clamp(2.25rem,6vw,5.25rem)] leading-[1.02] font-extrabold tracking-[-0.06em] text-balance"
+      >
+        Huancayo en colectivo.
+      </h1>
+      <p class="mx-auto mt-3 max-w-xl leading-relaxed text-muted text-pretty sm:text-lg">
+        Te llevamos en auto colectivo por las rutas de Huancayo.
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 sm:gap-3">
+        <a class="button button-dark" href="/rutas/">
+          Consultar rutas
+        </a>
+        <a class="button button-light" href="/rutas/#tarifas">
+          Ver tarifas
+        </a>
+      </div>
+    </div>
+    <figure class="mx-auto flex min-h-0 w-full max-w-5xl flex-col">
+      <div class="relative min-h-0 flex-1">
+        <Image
+          src={photo}
+          alt="Ilustración de un sedán blanco con una franja azul, visto de tres cuartos"
+          widths={[480, 800, 1120]}
+          sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1088px) calc(100vw - 64px), 1024px"
+          format="webp"
+          priority
+          class="absolute inset-0 h-full w-full object-contain"
+        />
+      </div>
+      <figcaption class="pb-2 text-center text-xs text-muted">
+        Imagen ilustrativa
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hero-screen {
+    display: grid;
+    min-block-size: calc(100svh - var(--header-height) - 1px);
+    grid-template-rows: auto minmax(8rem, 1fr);
+    padding-block-end: clamp(0.75rem, 2vh, 1.5rem);
+  }
+
+  .hero-copy {
+    padding-block: clamp(0.75rem, 5.5vh, 3.5rem) 0.25rem;
+  }
+
+  @media (min-width: 40rem) and (max-height: 34rem) {
+    .hero-screen {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: minmax(8rem, 1fr);
+      gap: 1.5rem;
+    }
+
+    .hero-copy {
+      align-self: center;
+      padding-block: 0.5rem;
+    }
+  }
+</style>

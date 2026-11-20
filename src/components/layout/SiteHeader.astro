@@ -1,0 +1,71 @@
+---
+import { companyName, navigation } from "../../data/landing";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "");
+const isCurrent = (href: string) =>
+  pathname === href.replace(/\/$/, "") ? "page" : undefined;
+---
+
+<header class="sticky top-0 z-10 border-b border-line bg-white/95 backdrop-blur-md">
+  <div class="wrap flex min-h-[var(--header-height)] items-center justify-between gap-4 xl:grid xl:grid-cols-[1fr_auto_1fr]">
+    <a href="/" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <i></i>
+        <i></i>
+      </span>
+      <span class="max-w-[12rem] text-base">{companyName}</span>
+    </a>
+    <nav
+      aria-label="Principal"
+      class="hidden items-center gap-5 whitespace-nowrap xl:flex"
+    >
+      {navigation.map(({ href, label }) => (
+        <a class="nav-link" href={href} aria-current={isCurrent(href)}>
+          {label}
+        </a>
+      ))}
+    </nav>
+    <a
+      class="button button-dark hidden justify-self-end xl:inline-flex"
+      href="/contacto/"
+      aria-current={isCurrent("/contacto/")}
+    >
+      Contacto
+    </a>
+    <details class="relative xl:hidden">
+      <summary class="button button-light cursor-pointer">Menú</summary>
+      <nav
+        aria-label="Principal móvil"
+        class="absolute right-0 z-10 mt-2 grid max-h-[calc(100dvh-var(--header-height)-1rem)] w-56 gap-1 overflow-y-auto rounded-xl border border-line bg-white p-2 shadow-lg"
+      >
+        {[...navigation, { href: "/contacto/", label: "Contacto" }].map(
+          ({ href, label }) => (
+            <a
+              class="rounded-lg px-3 py-2 font-semibold hover:bg-surface"
+              href={href}
+              aria-current={isCurrent(href)}
+            >
+              {label}
+            </a>
+          ),
+        )}
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>("header details");
+  if (menu) {
+    menu.addEventListener("click", (event) => {
+      if (event.target instanceof Element && event.target.closest("a"))
+        menu.open = false;
+    });
+    menu.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    });
+  }
+</script>

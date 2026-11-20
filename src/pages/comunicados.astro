@@ -1,0 +1,48 @@
+---
+import PublicLayout from "../layouts/PublicLayout.astro";
+---
+
+<PublicLayout
+  title="Comunicados"
+  description="Avisos sobre el servicio de autos colectivos en Huancayo."
+>
+  <section
+    id="comunicados"
+    class="wrap section-space"
+    aria-labelledby="notices-title"
+  >
+    <h1 id="notices-title" class="section-title">
+      Avisos del servicio
+    </h1>
+    <p class="mt-4 text-muted">
+      Por el momento no hay comunicados oficiales publicados.
+    </p>
+    <h2 class="mt-10 text-2xl font-bold">Cómo se verían los avisos</h2>
+    <p class="mt-2 text-sm font-semibold text-muted">
+      Contenido ficticio de demostración.
+    </p>
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+      <article class="panel">
+        <h3 class="text-lg font-bold">Paradero temporal</h3>
+        <p class="mt-2 text-muted">
+          Ejemplo de un aviso por obras. Indicaría el paradero alternativo, la
+          fecha de inicio y cuándo se restablece el punto habitual.
+        </p>
+      </article>
+      <article class="panel">
+        <h3 class="text-lg font-bold">Horario por feriado</h3>
+        <p class="mt-2 text-muted">
+          Ejemplo de un comunicado que muestra la primera salida, la última
+          salida y las rutas afectadas.
+        </p>
+      </article>
+      <article class="panel">
+        <h3 class="text-lg font-bold">Actualización de tarifas</h3>
+        <p class="mt-2 text-muted">
+          Ejemplo de un aviso con la tarifa anterior, la tarifa nueva y la fecha
+          de vigencia.
+        </p>
+      </article>
+    </div>
+  </section>
+</PublicLayout>
